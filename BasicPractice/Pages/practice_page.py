@@ -65,8 +65,8 @@ date = driver.find_element(By.ID, "datepicker")
 date.send_keys("2010/05/05")
 date.send_keys(Keys.ENTER)
 
-newWindo = driver.find_element(By.XPATH, "//button[text()='New Browser Window']")
-newWindo.click()
+newWindow = driver.find_element(By.XPATH, "//button[text()='New Browser Window']")
+newWindow.click()
 driver.switch_to.window(driver.window_handles[1])
 driver.switch_to.window(driver.window_handles[0])
 
