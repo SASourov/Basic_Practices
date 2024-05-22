@@ -17,7 +17,6 @@ name.send_keys("Automation Tester")
 time.sleep(2)
 driver.quit()
 
-
 # JS ALERT HANDLING
 jsAlert = driver.find_element(By.XPATH, "//button[text()='Prompt']")
 jsAlert.click()
@@ -38,17 +37,17 @@ daysStatic = driver.find_element(By.ID, "monday")
 daysStatic.click()
 
 checkboxes = driver.find_elements(By.XPATH, "//input[@class='form-check-input' and @type='checkbox']")
-for checkboxes in checkboxes: #All Checkbox x
+for checkboxes in checkboxes:  # All Checkbox x
     checkboxes.click()
     checkboxes.click()
-random_checkbox = random.choice(checkboxes) #Random click
+random_checkbox = random.choice(checkboxes)  # Random click
 random_checkbox.click()
 
-if checkboxes:  #LastOneClick
+if checkboxes:  # LastOneClick
     checkbox = checkboxes[-1]
     checkbox.click()
 
-if checkboxes: #firstOneClick
+if checkboxes:  # firstOneClick
     first_checkbox = checkboxes[0]
     first_checkbox.click()
 
