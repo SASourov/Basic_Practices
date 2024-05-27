@@ -15,7 +15,6 @@ driver.implicitly_wait(10)
 name = driver.find_element(By.ID, "name")
 name.send_keys("Automation Tester")
 time.sleep(2)
-driver.quit()
 
 # JS ALERT HANDLING
 jsAlert = driver.find_element(By.XPATH, "//button[text()='Prompt']")
@@ -36,6 +35,7 @@ genderFemale.click()
 daysStatic = driver.find_element(By.ID, "monday")
 daysStatic.click()
 
+# checkboxes
 checkboxes = driver.find_elements(By.XPATH, "//input[@class='form-check-input' and @type='checkbox']")
 for checkboxes in checkboxes:  # All Checkbox x
     checkboxes.click()
@@ -64,12 +64,30 @@ date = driver.find_element(By.ID, "datepicker")
 date.send_keys("2010/05/05")
 date.send_keys(Keys.ENTER)
 
+# Window Handle
 newWindow = driver.find_element(By.XPATH, "//button[text()='New Browser Window']")
 newWindow.click()
 driver.switch_to.window(driver.window_handles[1])
 driver.switch_to.window(driver.window_handles[0])
 
+# Double Click
 doubleClick = driver.find_element(By.XPATH, "//button[text()='Copy Text']")
 action = ActionChains(driver)
 action.double_click(doubleClick).perform()
 time.sleep(2)
+
+# Drag and Drop
+startPoint = driver.find_element(By.XPATH, "//p[text()='Drag me to my target']")
+targetPoint = driver.find_element(By.ID, "droppable")
+actions = ActionChains(driver)
+actions.drag_and_drop(startPoint, targetPoint).perform()
+time.sleep(2)
+
+
+# Bar Slider
+barSlider = driver.find_element(By.XPATH, "//div[contains(@class,'ui-slider ui-corner-all')]//span[1]")
+actions = ActionChains(driver)
+time.sleep(1)
+actions.click_and_hold(barSlider).move_by_offset(100, 0).release().perform()
+time.sleep(2)
+
